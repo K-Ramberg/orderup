@@ -5,7 +5,7 @@ const queSchema = require('./queSchema')
 
 const kitchenSchema = new Schema ({
     ovens: Number,
-    Stoves: Number,
+    stoves: Number,
     ques: [queSchema]
 })
 

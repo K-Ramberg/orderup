@@ -5,8 +5,8 @@ const menuSchema = require('./menuSchema')
 
 const userSchema = new Schema ({
     name: String,
-    Restaurant: String,
-    Menus: [menuSchema],
+    restaurant: String,
+    menus: [menuSchema],
     kitchens: [kitchenSchema]
 })
 

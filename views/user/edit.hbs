@@ -1,0 +1,15 @@
+<h1>Edit this:{{userSpecs.title}} user</h1>
+
+<form action="/user/{{userSpecs._id}}?_method=PUT" method="POST">
+  <div>
+    <label for="name">User Name</label>
+    <input type="text" name="name" value={{userSpecs.name}} />
+  </div>
+  <div>
+    <label for="restaurant">Set Restaurant</label>
+    <input type="text" name="restaurant" value={{userSpecs.restaurant}}></input>
+  </div>
+  <button type="submit">Save Edits</button>
+</form>
+
+<a href="/user/{{userSpecs._id}}">return to user</a>

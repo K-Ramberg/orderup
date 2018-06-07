@@ -1,0 +1,17 @@
+<h1>Welcome {{userSpecs.name}}</h1>
+
+<h2>from {{userSpecs.restaurant}}</h2>
+
+<h3>Your Menus: {{userSpecs.menus}}</h3>
+ {{!-- access point to menus --}}
+<h3>Your Kitchens: {{userSpecs.kitchens}}</h3>
+{{!-- access point to kitchens --}}
+<h4>
+    <form action="/user/{{userSpecs._id}}_method=DELETE" method="POST">
+        <button type="submit">Delete User</button>
+    </form>
+</h4>
+
+<a href="/user/{{userSpecs._id}}/edit"></a>
+
+<a href="/user">return</a>
