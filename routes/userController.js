@@ -33,9 +33,9 @@ router.get('/:id', (req, res) => {
 })
 
 router.get('/:id/edit', (req, res) => {
-    User.findById(req,params.id)
+    User.findById(req.params.id)
         .then((userSpecs) => {
-            res.render('/user/edit', { userSpecs})
+            res.render('user/edit', { userSpecs})
         })
 })
 
@@ -47,7 +47,7 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-    user.findByIdAndRemove(req.params.id)
+    User.findByIdAndRemove(req.params.id)
         .then(() => {
             res.redirect('/user')
         })
