@@ -1,5 +1,6 @@
 <h1> User Menus</h1>
 {{#each menus}}
+    <li>{{name}}</li>
     <p>
     {{#each dishes}}
     <li>{{name}}</li>
@@ -7,3 +8,6 @@
     {{/each}}
     </p>
 {{/each}}
+
+<a href="/user/{{userId}}/menu/new">Add New Menu</a>
+<a href="/user/{{userId}}">return</a>

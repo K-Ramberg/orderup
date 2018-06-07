@@ -2,8 +2,13 @@
 
 <h2>from {{userSpecs.restaurant}}</h2>
 
-<h3>Your Menus: {{userSpecs.menus}}</h3>
- {{!-- access point to menus --}}
+<h3>Your <a href="/user/{{userId}}/menu">Menus:</a> 
+    {{#each userSpecs.menus}}
+        {{name}}
+    {{/each}}
+</h3>
+<a href="/user/{{userId}}/menu/new">add new Menu</a>
+
 <h3>Your Kitchens: {{userSpecs.kitchens}}</h3>
 {{!-- access point to kitchens --}}
 <h4>

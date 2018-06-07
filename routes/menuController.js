@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
             return user.save()
         })
         .then(() => {
-            res.redirect(`/user/${req.params.userId}/menu`)
+            res.redirect(`/user/${req.params.userId}`)
         })
 })
 
