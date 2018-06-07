@@ -7,8 +7,8 @@ const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 const userController = require('./routes/userController')
+const menuController = require('./routes/menuController')
 
 var app = express();
 require('dotenv').config()
@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/user', userController);
+app.use('/user/:userId/menu', menuController);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -4,7 +4,7 @@
     {{#each userSpecs}}
     <li><a href="/user/{{_id}}">{{name}}</a></li>
     <li>at: {{restaurant}}</li>
-    <li>Menus: {{menus.length}}</li>
+    <li><a href="/user/{{_id}}/menu">Menus:</a> {{menus.length}}</li>
     <li>Kitchens: {{kitchens.length}}</li>
     {{/each}}
 </ul>
