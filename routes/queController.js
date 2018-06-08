@@ -6,72 +6,68 @@ const Que = require('../models/Que')
 
 
 router.get('/new', (req, res) => {
-    res.render('dish/new', {
+    res.render('que/new', {
         userId: req.params.userId,
-        menuId: req.params.menuId
+        kitchenId: req.params.kitchenId
     })
 })
 
 router.post('/', (req, res) => {
     const userId = req.params.userId
-    const menuId = req.params.menuId
-    const dish = new Dish(req.body)
+    const kitchenId = req.params.kitchenId
+    const que = new Que(req.body)
     User.findById(userId)
         .then((user) => {
-            user.menus.id(menuId).dishes.push(dish)
+            user.kitchens.id(kitchenId).ques.push(que)
             return user.save()
         })
         .then(() => {
-            res.redirect(`/user/${userId}/menu/${menuId}`)
+            res.redirect(`/user/${userId}/kitchen/${kitchenId}`)
         })
 })
 
 router.get('/:id', (req, res) => {
     const userId = req.params.userId
-    const menuId = req.params.menuId
-    const dishId = req.params.id
+    const kitchenId = req.params.kitchenId
+    const queId = req.params.id
     User.findById(userId)
         .then((user) => {
-            const menu = user.menus.id(menuId)
-            const dish = menu.dishes.id(dishId)
-            res.render('dish/show', {
-                userId, menu, menuId, dish, dishId
+            const kitchen = user.kitchens.id(kitchenId)
+            const que = kitchen.ques.id(queId)
+            res.render('que/show', {
+                userId, kitchen, kitchenId, que, queId
             })
         })
     })
 
 router.get('/:id/edit', (req, res) => {
     const userId = req.params.userId
-    const menuId = req.params.menuId
-    const dishId = req.params.id
+    const kitchenId = req.params.kitchenId
+    const queId = req.params.id
     User.findById(userId)
         .then((user) => {
-            const menu = user.menus.id(menuId)
-            const dish = menu.dishes.id(dishId)
-            res.render('dish/edit', {
-                userId, menu, menuId, dish, dishId
+            const kitchen = user.kitchens.id(kitchenId)
+            const que = kitchen.ques.id(queId)
+            res.render('que/edit', {
+                userId, kitchen, kitchenId, que, queId
             })
         })
 })
 
 router.put('/:id', (req, res) => {
     const userId = req.params.userId
-    const menuId = req.params.menuId
-    const dishId = req.params.id
+    const kitchenId = req.params.kitchenId
+    const queId = req.params.id
        User.findById(userId) 
         .then((user) => {
-            const menu = user.menus.id(menuId)
-            const dish = menu.dishes.id(dishId)
-            dish.name = req.body.name
-            dish.price = req.body.price
-            dish.ingredients = req.body.ingredients
-            dish.cookTime = req.body.cookTime
-            dish.ovensNeeded = req.body.ovensNeeded
-            dish.stovesNeeded = req.body.stovesNeeded
+            const kitchen = user.kitchens.id(kitchenId)
+            const que = kitchen.ques.id(queId)
+            que.name = req.body.name
+            que.restaurant = req.body.restaurant
             return user.save()
        })
         .then(() => {
-            res.redirect(`/user/${userId}/menu/${menuId}/dish/${dishId}`)
+            res.redirect(`/user/${userId}/kitchen/${kitchenId}/que/${queId}`)
         })
         .catch(err => console.log(err))
     })
@@ -79,15 +75,15 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     const userId = req.params.userId
-    const menuId = req.params.menuId
-    const dishId = req.params.id
+    const kitchenId = req.params.kitchenId
+    const queId = req.params.id
     User.findById(userId)
     .then((user) => {
-        user.menus.id(menuId).dishes.id(dishId).remove()
+        user.kitchens.id(kitchenId).ques.id(queId).remove()
         return user.save()
     })
     .then(() => {
-        res.redirect(`/user/${userId}/menu/${menuId}`)
+        res.redirect(`/user/${userId}/kitchen/${kitchenId}`)
     })
 })
 
