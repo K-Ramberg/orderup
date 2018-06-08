@@ -49,25 +49,32 @@ router.get('/:id/edit', (req, res) => {
             const menu = user.menus.id(menuId)
             const dish = menu.dishes.id(dishId)
             res.render('dish/edit', {
-                userId, menu, menuId, dish
+                userId, menu, menuId, dish, dishId
             })
         })
 })
 
-// router.put('/:id', (req, res) => {
-//     const userId = req.params.userId
-//     const menuId = req.params.id
-//        User.findById(userId) 
-//         .then((user) => {
-//             const menu = user.menus.id(menuId)
-//             menu.name = req.body.name
-//             return user.save()
-//        })
-//         .then(() => {
-//             res.redirect(`/user/${userId}/menu/${menuId}`)
-//         })
-//         .catch(err => console.log(err))
-//     })
+router.put('/:id', (req, res) => {
+    const userId = req.params.userId
+    const menuId = req.params.menuId
+    const dishId = req.params.id
+       User.findById(userId) 
+        .then((user) => {
+            const menu = user.menus.id(menuId)
+            const dish = menu.dishes.id(dishId)
+            dish.name = req.body.name
+            dish.price = req.body.price
+            dish.ingredients = req.body.ingredients
+            dish.cookTime = req.body.cookTime
+            dish.ovensNeeded = req.body.ovensNeeded
+            dish.stovesNeeded = req.body.stovesNeeded
+            return user.save()
+       })
+        .then(() => {
+            res.redirect(`/user/${userId}/menu/${menuId}/dish/${dishId}`)
+        })
+        .catch(err => console.log(err))
+    })
 
 
 router.delete('/:id', (req, res) => {

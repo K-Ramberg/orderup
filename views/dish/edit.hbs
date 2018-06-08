@@ -1,1 +1,31 @@
-<h1>this is the dish edit view</h1>
+<h1>Edit {{dish.name}}</h1>
+
+<form action="/user/{{userId}}/menu/{{menuId}}/dish/{{dish._id}}?_method=PUT" method="POST">
+  <div>
+    <label for="name">Dish Name</label>
+    <input type="text" name="name" value="{{dish.name}}" />
+  </div>
+  <div>
+    <label for="price">Price</label>
+    <input type="number" name="price" value="{{dish.price}}" />
+  </div>
+  <div>
+    <label for="ingredients">Ingredients</label>
+    <input type="text" name="ingredients" value="{{dish.ingredients}}" />
+  </div>
+  <div>
+    <label for="cookTime">Time to Make</label>
+    <input type="number" name="cookTime" value="{{dish.cookTime}}" />
+  </div>
+  <div>
+    <label for="ovensNeeded">Ovens Required</label>
+    <input type="number" name="ovensNeeded" value="{{dish.ovensNeeded}}" />
+  </div>
+  <div>
+    <label for="stovesNeeded">Stoves Required</label>
+    <input type="number" name="stovesNeeded" value="{{dish.stovesNeeded}}" />
+  </div>
+  <button type="submit">Update Dish</button>
+</form>
+
+<a href="/user/{{userId}}/menu/{{menuId}}/dish/{{dishId}}">return</a>
