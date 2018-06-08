@@ -7,9 +7,9 @@
 <h3>Stoves: {{dishes.stovesNeeded}}</h3>
 
 
- <form action="/user/{{userId}}/menu/{{menu._id}}?_method=DELETE" method="POST">
-         <button type="submit">Delete Menu</button>
+ <form action="/user/{{userId}}/menu/{{menuId}}/dish/{{dish._id}}?_method=DELETE" method="POST">
+         <button type="submit">Delete Dish</button>
      </form>
 
-
+<a href="/user/{{userId}}/menu/{{menuId}}/dish/{{dish._id}}/edit">Edit Dish</a>
 <a href="/user/{{userId}}/menu/{{menuId}}">return</a>

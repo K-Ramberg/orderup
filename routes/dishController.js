@@ -40,17 +40,19 @@ router.get('/:id', (req, res) => {
         })
     })
 
-// router.get('/:id/edit', (req, res) => {
-//     const userId = req.params.userId
-//     const menuId = req.params.id
-//     User.findById(userId)
-//         .then((user) => {
-//             const menu = user.menus.id(menuId)
-//             res.render('menu/edit', {
-//                 userId, menu, menuId
-//             })
-//         })
-// })
+router.get('/:id/edit', (req, res) => {
+    const userId = req.params.userId
+    const menuId = req.params.menuId
+    const dishId = req.params.id
+    User.findById(userId)
+        .then((user) => {
+            const menu = user.menus.id(menuId)
+            const dish = menu.dishes.id(dishId)
+            res.render('dish/edit', {
+                userId, menu, menuId, dish
+            })
+        })
+})
 
 // router.put('/:id', (req, res) => {
 //     const userId = req.params.userId
