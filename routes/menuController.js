@@ -58,12 +58,17 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
     const userId = req.params.userId
     const menuId = req.params.id
-       User.findById(userId) .then((user) => {
+       User.findById(userId) 
+        .then((user) => {
             const menu = user.menus.id(menuId)
-            menu.findByIdAndUpdate(menuId, req.body, {new: true})
-             res.redirect(`/user/${userId}/menu/${menuId}`)
+            menu.name = req.body.name
+            return user.save()
+       })
+        .then(() => {
+            res.redirect(`/user/${userId}/menu/${menuId}`)
         })
-})
+        .catch(err => console.log(err))
+    })
 
 
 router.delete('/:id', (req, res) => {
