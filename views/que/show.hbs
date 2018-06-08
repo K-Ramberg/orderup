@@ -1,0 +1,16 @@
+<h1>{{que.name}}</h1>
+
+<h3>Restaurant: {{que.restaurant}}</h3>
+<h3>Dishes: {{#each que.dishes}} 
+    <li> - ref here >{{name}}< </li>
+        {{/each}}
+</h3>
+
+
+
+ <form action="/user/{{userId}}/kitchen/{{kitchenId}}/que/{{que._id}}?_method=DELETE" method="POST">
+         <button type="submit">Delete que</button>
+     </form>
+
+<a href="/user/{{userId}}/kitchen/{{kitchenId}}/que/{{que._id}}/edit">Edit que</a>
+<a href="/user/{{userId}}/kitchen/{{kitchenId}}">return</a>

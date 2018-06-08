@@ -1,0 +1,15 @@
+<h1>Add new Que</h1>
+
+<form action="/user/{{userId}}/kitchen/{{kitchenId}}/que" method="POST">
+    <div>
+        <label for="name">Que Name: </label>
+        <input type="text" name="name" placeholder="Name your Que" />
+    </div>
+    <div>
+        <label for="restaurant">Restaurant:</label>
+        <input type="text" name="restaurant" placeholder="Restaurant name" />
+    </div>
+    <button type="submit">Save New Que</button>
+</form>
+
+<a href="/user/{{userId}}/kitchen/{{kitchenId}}">return</a>
