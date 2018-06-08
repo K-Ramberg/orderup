@@ -1,0 +1,15 @@
+<h1>{{dish.name}}</h1>
+
+<h3>Price: {{dish.price}}</h3>
+<h3>Ingredients: {{dish.ingredients}}</h3>
+<h3>Cook Time: {{dish.cookTime}}</h3>
+<h3>Ovens: {{dish.ovensNeeded}}</h3>
+<h3>Stoves: {{dishes.stovesNeeded}}</h3>
+
+
+ <form action="/user/{{userId}}/menu/{{menu._id}}?_method=DELETE" method="POST">
+         <button type="submit">Delete Menu</button>
+     </form>
+
+
+<a href="/user/{{userId}}/menu/{{menuId}}">return</a>

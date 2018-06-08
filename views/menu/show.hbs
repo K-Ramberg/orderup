@@ -2,9 +2,10 @@
 
 <h3> Dishes: 
     {{#each menu.dishes}}
-    <li>{{dishes.name}}</li>
+    <li><a href="/user/{{../userId}}/menu/{{../menuId}}/dish/{{_id}}">{{name}}</a></li>
     {{/each}}
      </h3>
+     <a href="/user/{{userId}}/menu/{{menuId}}/dish/new">add new dish</a>
 
      <form action="/user/{{userId}}/menu/{{menu._id}}?_method=DELETE" method="POST">
          <button type="submit">Delete Menu</button>

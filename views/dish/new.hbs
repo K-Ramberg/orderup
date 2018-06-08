@@ -1,0 +1,31 @@
+<h1>Add new dish</h1>
+
+<form action="/user/{{userId}}/menu/{{menuId}}/dish" method="POST">
+  <div>
+    <label for="name">Dish Name</label>
+    <input type="text" name="name" placeholder="Dish Name" />
+  </div>
+  <div>
+    <label for="price">Price</label>
+    <input type="number" name="price" placeholder="Price" />
+  </div>
+  <div>
+    <label for="ingredients">Ingredients</label>
+    <input type="text" name="ingredients" placeholder="Ingredients" />
+  </div>
+  <div>
+    <label for="cookTime">Time to Make</label>
+    <input type="number" name="cookTime" placeholder="cook time" />
+  </div>
+  <div>
+    <label for="ovensNeeded">Ovens Required</label>
+    <input type="number" name="ovensNeeded" placeholder="Ovens" />
+  </div>
+  <div>
+    <label for="stovesNeeded">Stoves Required</label>
+    <input type="number" name="stovesNeeded" placeholder="Stoves" />
+  </div>
+  <button type="submit">Save New Dish</button>
+</form>
+
+<a href="/user/{{userId}}/menu/{{menuId}}">return</a>
