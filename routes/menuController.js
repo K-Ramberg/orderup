@@ -43,5 +43,41 @@ router.get('/:id', (req, res) => {
         })
     })
 
+router.get('/:id/edit', (req, res) => {
+    const userId = req.params.userId
+    const menuId = req.params.id
+    User.findById(userId)
+        .then((user) => {
+            const menu = user.menus.id(menuId)
+            res.render('menu/edit', {
+                userId, menu, menuId
+            })
+        })
+})
+
+router.put('/:id', (req, res) => {
+    const userId = req.params.userId
+    const menuId = req.params.id
+       User.findById(userId) .then((user) => {
+            const menu = user.menus.id(menuId)
+            menu.findByIdAndUpdate(menuId, req.body, {new: true})
+             res.redirect(`/user/${userId}/menu/${menuId}`)
+        })
+})
+
+
+router.delete('/:id', (req, res) => {
+    const userId = req.params.userId
+    const menuId = req.params.id
+
+    User.findById(userId)
+    .then((user) => {
+        user.menus.id(menuId).remove()
+        return user.save()
+    })
+    .then(() => {
+        res.redirect(`/user/${userId}`)
+    })
+})
 
 module.exports = router

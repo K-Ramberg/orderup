@@ -6,5 +6,9 @@
     {{/each}}
      </h3>
 
-<a href="/user/{{userId}}/menu/{{menuId}}/edit">Edit menu name</a>
+     <form action="/user/{{userId}}/menu/{{menu._id}}?_method=DELETE" method="POST">
+         <button type="submit">Delete Menu</button>
+     </form>
+
+<a href="/user/{{userId}}/menu/{{menu._id}}/edit">Edit menu name</a>
 <a href="/user/{{userId}}">return</a>

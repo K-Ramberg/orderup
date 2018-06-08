@@ -1,1 +1,13 @@
-<h1>Edit -- menu name</h1>
+<h1>Edit {{menu.name}} menu name</h1>
+
+
+<form action="/user/{{userId}}/menu/{{menu._id}}?_method=PUT" method="POST">
+  <div>
+    <label for="name">Menu Name</label>
+    <input type="text" name="name" value={{menu.name}} />
+  </div>
+  <button type="submit">Update Menu</button>
+</form>
+
+
+<a href="/user/{{userId}}/menu/{{menu._id}}">return</a>
