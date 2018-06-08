@@ -2,12 +2,15 @@
 
 <h3> Ques: 
     {{#each kitchen.ques}}
-    <li>{{ques.name}}</li>
+    <li><a href="/user/{{../userId}}/kitchen/{{../kitchenId}}/que/{{_id}}">{{name}}</a></li>
     {{/each}}
      </h3>
 
+<a href="/user/{{userId}}/kitchen/{{kitchenId}}/que/new">add new Que</a>
+
      <h3> Ovens: {{kitchen.ovens}}</h3>
      <h3> Stoves: {{kitchen.stoves}}</h3>
+
 
       <form action="/user/{{userId}}/kitchen/{{kitchen._id}}?_method=DELETE" method="POST">
          <button type="submit">Delete Kitchen</button>
