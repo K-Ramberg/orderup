@@ -1,0 +1,21 @@
+<h1>Edit {{kitchen.name}} Kitchen</h1>
+
+
+<form action="/user/{{userId}}/kitchen/{{kitchen._id}}?_method=PUT" method="POST">
+  <div>
+    <label for="name">Kitchen Name:</label>
+    <input type="text" name="name" value="{{kitchen.name}}"/>
+  </div>
+   <div>
+    <label for="ovens">Ovens:</label>
+    <input type="number" name="ovens" value="{{kitchen.ovens}}"/>
+  </div>
+   <div>
+    <label for="stoves">Stoves:</label>
+    <input type="number" name="stoves"   value="{{kitchen.stoves}}"/>
+  </div>
+  <button type="submit">Update Kitchen</button>
+</form>
+
+
+<a href="/user/{{userId}}/kitchen/{{kitchen._id}}">return</a>
