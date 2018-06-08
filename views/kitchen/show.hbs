@@ -1,0 +1,13 @@
+<h1>{{kitchen.name}} Kitchen</h1> 
+
+<h3> Ques: 
+    {{#each kitchen.ques}}
+    <li>{{ques.name}}</li>
+    {{/each}}
+     </h3>
+
+     <h3> Ovens: {{kitchen.ovens}}</h3>
+     <h3> Stoves: {{kitchen.stoves}}</h3>
+
+<a href="/user/{{userId}}/kitchen/{{kitchenId}}/edit">Edit Kitchen</a>
+<a href="/user/{{userId}}">return</a>

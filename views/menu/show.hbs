@@ -1,1 +1,10 @@
-<h1>this is the {{menus.name}} menu page</h1> 
+<h1>{{menu.name}} Menu</h1> 
+
+<h3> Dishes: 
+    {{#each menu.dishes}}
+    <li>{{dishes.name}}</li>
+    {{/each}}
+     </h3>
+
+<a href="/user/{{userId}}/menu/{{menuId}}/edit">Edit menu name</a>
+<a href="/user/{{userId}}">return</a>

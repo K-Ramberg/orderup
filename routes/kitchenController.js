@@ -1,29 +1,20 @@
 const express = require('express')
 const router = express.Router({mergeParams: true})
 const User = require('../models/User')
-const Menu = require('../models/Menu')
+const Kitchen = require('../models/Kitchen')
 
-// router.get('/', (req, res, next) => {
-//     User.findById(req.params.userId)
-//         .then((user) => {
-//             const menus = user.menus
-//             res.render('menu/index', {
-//                 menus, userId: req.params.userId
-//             })
-//         }) .catch((err) => res.send('error ' + err))
-// })
 
 router.get('/new', (req, res) => {
-    res.render('menu/new', {
+    res.render('kitchen/new', {
         userId: req.params.userId
     })
 })
 
 router.post('/', (req, res) => {
-    const menu = new Menu(req.body)
+    const kitchen = new Kitchen(req.body)
     User.findById(req.params.userId)
         .then((user) => {
-            user.menus.push(menu)
+            user.kitchens.push(kitchen)
             return user.save()
         })
         .then(() => {
@@ -33,12 +24,12 @@ router.post('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     const userId = req.params.userId
-    const menuId = req.params.id
+    const kitchenId = req.params.id
     User.findById(userId)
         .then((user) => {
-            const menu = user.menus.id(menuId)
-            res.render('menu/show', {
-                userId, menu, menuId
+            const kitchen = user.kitchens.id(kitchenId)
+            res.render('kitchen/show', {
+                userId, kitchen, kitchenId
             })
         })
     })
