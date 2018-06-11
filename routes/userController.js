@@ -55,6 +55,7 @@ router.delete('/:id', (req, res) => {
         })
 })
 
+//Cut From Que Route
 router.delete('/:id/cut/:dishId', (req, res) => {
     const dishId = req.params.dishId
     const userId = req.params.id

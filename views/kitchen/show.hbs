@@ -1,10 +1,5 @@
 <h1>{{kitchen.name}} Kitchen</h1> 
 
-<h3> Ques: 
-    {{#each kitchen.ques}}
-    <li><a href="/user/{{../userId}}/kitchen/{{../kitchenId}}/que/{{_id}}">{{name}}</a></li>
-    {{/each}}
-     </h3>
 
 <a href="/user/{{userId}}/kitchen/{{kitchenId}}/que/new">add new Que</a>
 
