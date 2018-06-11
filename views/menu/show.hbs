@@ -3,8 +3,9 @@
 <h3> Dishes: 
     <ul>
     {{#each menu.dishes}}
-    <li><a href="/user/{{../userId}}/menu/{{../menuId}}/dish/{{_id}}">{{name}}</a>
-    <form action="/user/{{../userId}}/kitchen?_method=PUT" method="POST">
+    <li><a href="/user/{{../userId}}/menu/{{../menuId}}/dish/{{_id}}">-{{name}}</a>
+    <form action="/user/{{../userId}}/menu/{{../menuId}}/dish/{{_id}}/send" method="POST">
+            <input type="hidden" name="name" value="{{name}}"/>
          <button type="submit">order^</button>
     </form>
     </li>

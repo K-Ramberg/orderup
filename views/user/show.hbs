@@ -1,18 +1,15 @@
-
 <h1>Welcome {{userSpecs.name}}</h1>
 
 <h2>from {{userSpecs.restaurant}}</h2>
 
-<h3>Your Menus:
-    {{#each userSpecs.menus}}
-        <a href="/user/{{../userId}}/menu/{{_id}}">{{name}}</a>
+<h3>Your Menus: {{#each userSpecs.menus}}
+    <a href="/user/{{../userId}}/menu/{{_id}}">{{name}}</a>
     {{/each}}
 </h3>
 <a href="/user/{{userId}}/menu/new">Add New Menu</a>
 
-<h3>Your Kitchens:
- {{#each userSpecs.kitchens}}
-        <a href="/user/{{../userId}}/kitchen/{{_id}}">{{name}}</a>
+<h3>Your Kitchens: {{#each userSpecs.kitchens}}
+    <a href="/user/{{../userId}}/kitchen/{{_id}}">{{name}}</a>
     {{/each}}
 </h3>
 <a href="/user/{{userId}}/kitchen/new">Add new Kitchen</a>
@@ -26,3 +23,15 @@
 <a href="/user/{{userId}}/edit">edit user</a>
 
 <a href="/user">return</a>
+
+<h1>TEST QUE:
+    <ul>
+        {{#each userSpecs.testQue}}
+        <li>here ____ {{name}}_____{{_id}}
+            <form action="/user/{{../userSpecs._id}}/cut/{{_id}}?_method=DELETE" method="POST">
+                <button type="submit">Item Completed</button>
+            </form>
+        </li>
+        {{/each}}
+    </ul>
+</h1>

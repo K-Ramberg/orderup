@@ -54,7 +54,23 @@ router.get('/:id/edit', (req, res) => {
         })
 })
 
-
+//QUE PUSH ROUTE
+router.post('/:id/send', (req, res) => {
+    const userId = req.params.userId
+    const menuId = req.params.menuId
+    const dishId = req.params.id
+    const dishNew = new Dish(req.body)
+       User.findById(userId) 
+        .then((user) => {
+            dish = user.menus.id(menuId).dishes.id(dishId)
+            user.testQue.push(dishNew)
+            return user.save()
+       })
+        .then(() => {
+            res.redirect(`/user/${userId}/menu/${menuId}`)
+        })
+        .catch(err => console.log(err))
+    })
 
 
 router.put('/:id', (req, res) => {

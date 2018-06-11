@@ -1,6 +1,7 @@
 const express = require('express')
-const router = express.Router()
+const router = express.Router({mergeParams: true})
 const User = require('../models/User')
+const Dish = require('../models/Dish')
 
 router.get('/', (req, res, next) => {
     User.find()
@@ -22,6 +23,7 @@ router.post('/', (req, res) => {
             res.redirect('/user')
         })
 })
+
 
 router.get('/:id', (req, res) => {
     User.findById(req.params.id)
@@ -51,6 +53,25 @@ router.delete('/:id', (req, res) => {
         .then(() => {
             res.redirect('/user')
         })
+})
+
+router.delete('/:id/cut/:dishId', (req, res) => {
+    const dishId = req.params.dishId
+    const userId = req.params.id
+    User.findById(userId)
+    .then((user) => {
+        let que = user.testQue
+       que.id(dishId).remove()
+        return user.save()
+    })
+    .then(() => {
+        res.redirect(`/user/${userId}/cut/remove`)
+    })
+})
+
+router.get('/:id/cut/remove', (req, res) => {
+    const userId = req.params.id
+    res.redirect(`/user/${userId}`)
 })
 
 module.exports = router
