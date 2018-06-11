@@ -9,7 +9,6 @@ const methodOverride = require('method-override')
 var indexRouter = require('./routes/index');
 const userController = require('./routes/userController')
 const menuController = require('./routes/menuController')
-const kitchenController = require('./routes/kitchenController')
 const dishController = require('./routes/dishController')
 
 var app = express();
@@ -31,7 +30,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/user', userController);
 app.use('/user/:userId/menu', menuController);
-app.use('/user/:userId/kitchen', kitchenController)
 app.use('/user/:userId/menu/:menuId/dish', dishController)
 
 

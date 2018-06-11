@@ -8,11 +8,6 @@
 </h3>
 <a href="/user/{{userId}}/menu/new">Add New Menu</a>
 
-<h3>Your Kitchens: {{#each userSpecs.kitchens}}
-    <a href="/user/{{../userId}}/kitchen/{{_id}}">{{name}}</a>
-    {{/each}}
-</h3>
-<a href="/user/{{userId}}/kitchen/new">Add new Kitchen</a>
 
 <h4>
     <form action="/user/{{userSpecs._id}}?_method=DELETE" method="POST">
