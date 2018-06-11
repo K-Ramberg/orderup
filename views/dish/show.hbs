@@ -1,15 +1,28 @@
-<h1>{{dish.name}}</h1>
+<div class="container light-green lighten-3 que">
+    <div class="dishName">
+        {{dish.name}}
+    </div>
+    <div class="dish">
+        <p>Price: {{dish.price}}</p>
+        <p>Ingredients: {{dish.ingredients}}</p>
+        <p>Cook Time: {{dish.cookTime}}</p>
+        <p>Ovens: {{dish.ovensNeeded}}</p>
+        <p>Stoves: {{dish.stovesNeeded}}</p>
+    </div>
+</div>
 
-<h3>Price: {{dish.price}}</h3>
-<h3>Ingredients: {{dish.ingredients}}</h3>
-<h3>Cook Time: {{dish.cookTime}}</h3>
-<h3>Ovens: {{dish.ovensNeeded}}</h3>
-<h3>Stoves: {{dish.stovesNeeded}}</h3>
+<div>
+    <form class="delete" action="/user/{{userId}}/menu/{{menuId}}/dish/{{dish._id}}?_method=DELETE" method="POST">
+        <button class="delete" type="submit">Delete Dish</button>
+    </form>
+</div>
 
+<div class="edit row">
+    <a href="/user/{{userId}}/menu/{{menuId}}/dish/{{dish._id}}/edit">Edit Dish</a>
+</div>
 
- <form action="/user/{{userId}}/menu/{{menuId}}/dish/{{dish._id}}?_method=DELETE" method="POST">
-         <button type="submit">Delete Dish</button>
-     </form>
-
-<a href="/user/{{userId}}/menu/{{menuId}}/dish/{{dish._id}}/edit">Edit Dish</a>
-<a href="/user/{{userId}}/menu/{{menuId}}">return</a>
+<div class="return row">
+    <div class="col s3">
+        <a href="/user/{{userId}}/menu/{{menuId}}">Return</a>
+    </div>
+</div>

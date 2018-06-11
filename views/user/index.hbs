@@ -1,13 +1,24 @@
-<h1>Select your User</h1>
+<div class="container z-depth-3" id="primaryIndex">
+    <div class="col s12 light-green lighten-4">Please Selet your User</div>
 
-<ul>
-    {{#each userSpecs}}
-    <li><a href="/user/{{_id}}">{{name}}</a></li>
-    <li>at: {{restaurant}}</li>
-    <li>Menus: {{menus.length}}</li>
-    {{/each}}
-</ul>
+    <ul>
+        {{#each userSpecs}}
+        <div class="listedUser row light-green lighten-1">
+            <li>
+                <a href="/user/{{_id}}">{{name}}</a>
+            </li>
+            <li>at: {{restaurant}}</li>
+            <li>Menus: {{menus.length}}</li>
+        </div>
+        {{/each}}
+    </ul>
+    <div class="return row">
+        <a href="/user/new">Add Another User</a>
+    </div>
+</div>
 
-<a href="/user/new">add new user</a>
-
-<a href="/">return</a>
+<div class="return row">
+    <div class="col s3 push-s1">
+        <a href="/">Return</a>
+    </div>
+</div>

@@ -1,22 +1,53 @@
-<h1>{{menu.name}} Menu</h1> 
-
-<h3> Dishes: 
+<div class=" row listedUser col s6 push-s3 z-depth-4">
+    <div class="quedUp">
+        Dishes:
+    </div>
     <ul>
-    {{#each menu.dishes}}
-    <li><a href="/user/{{../userId}}/menu/{{../menuId}}/dish/{{_id}}">-{{name}}</a>
-    <form action="/user/{{../userId}}/menu/{{../menuId}}/dish/{{_id}}/send" method="POST">
-            <input type="hidden" name="name" value="{{name}}"/>
-         <button type="submit">order^</button>
-    </form>
-    </li>
-    {{/each}}
+        {{#each menu.dishes}}
+        <div class="row light-green lighten-3">
+            <div class="que">
+                <a href="/user/{{../userId}}/menu/{{../menuId}}/dish/{{_id}}">-{{name}}</a>
+                <div class="row quedUp menUp">
+                    <div class="col s5">
+                        ($): {{price}}
+                    </div>
+                    <div class="col s5">
+                        Time (mins): {{cookTime}}
+                    </div>
+                </div>
+                <div class="row quedUp menUp">
+                    <div class="col s9 push-s1 dark-green-text">
+                       Made with: {{ingredients}}
+                    </div>
+                </div>
+
+                <form action="/user/{{../userId}}/menu/{{../menuId}}/dish/{{_id}}/send" method="POST">
+                    <input type="hidden" name="name" value="{{name}}" />
+                    <input type="hidden" name="cookTime" value="{{cookTime}}">
+                    <button class="orderup" type="submit">order^</button>
+                </form>
+            </div>
+        </div>
+        {{/each}}
     </ul>
-     </h3>
-     <a href="/user/{{userId}}/menu/{{menuId}}/dish/new">add new dish</a>
+    <a href="/user/{{userId}}/menu/{{menuId}}/dish/new">Add new dish</a>
+</div>
 
-     <form action="/user/{{userId}}/menu/{{menu._id}}?_method=DELETE" method="POST">
-         <button type="submit">Delete Menu</button>
-     </form>
 
-<a href="/user/{{userId}}/menu/{{menu._id}}/edit">Edit menu name</a>
-<a href="/user/{{userId}}">return</a>
+
+
+<div>
+    <form class="delete" action="/user/{{userId}}/menu/{{menu._id}}?_method=DELETE" method="POST">
+        <button class="delete" type="submit">Delete Menu</button>
+    </form>
+</div>
+
+<div class="edit row">
+    <a href="/user/{{userId}}/menu/{{menu._id}}/edit">Edit Menu Name</a>
+</div>
+
+<div class="return row">
+    <div class="col s3">
+        <a href="/user/{{userId}}">Return</a>
+    </div>
+</div>
