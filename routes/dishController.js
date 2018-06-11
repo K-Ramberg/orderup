@@ -63,7 +63,7 @@ router.post('/:id/send', (req, res) => {
        User.findById(userId) 
         .then((user) => {
             dish = user.menus.id(menuId).dishes.id(dishId)
-            user.testQue.push(dishNew)
+            user.dishQue.push(dishNew)
             return user.save()
        })
         .then(() => {

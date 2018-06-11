@@ -61,7 +61,7 @@ router.delete('/:id/cut/:dishId', (req, res) => {
     const userId = req.params.id
     User.findById(userId)
     .then((user) => {
-        let que = user.testQue
+        let que = user.dishQue
        que.id(dishId).remove()
         return user.save()
     })

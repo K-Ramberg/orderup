@@ -7,7 +7,7 @@ const userSchema = new Schema ({
     name: String,
     restaurant: String,
     menus: [menuSchema],
-    testQue: [dishSchema]
+    dishQue: [dishSchema]
 })
 
 module.exports = userSchema
