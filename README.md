@@ -7,7 +7,7 @@ MEN stack app project
 
     The application was built with utility in mind. Functionality and simplicity have been emphasized in place of extravagent styilings. 
 
-    #### USer Stories 
+#### User Stories 
     (https://trello.com/b/N1Bxtb2u/od3-project-2)
 
     Unfortunately, curent time constraints have left the project short of the ultimate goals of functionality. Original planning included access to kitchen models to specifiy within a restaurant (and potentially several locations of the restaurant), what the kitchen's capacity to fulfill orders was, based on present euipment capabilities. Certain model keys are evident holdovers of this ambition, such as the stove burner/oven usage requirements, and estimated minimum cook times of each dish. Use these conditions as a guide, the active order que was then intended to be sorted in realtime to display the most efficient sequence of order fulfillment. It is still the future goal of the project to repopulate the kitchen model tree, and reassign ques specific to kitchens. 
