@@ -3,7 +3,6 @@ const router = express.Router({mergeParams: true})
 const User = require('../models/User')
 const Menu = require('../models/Menu')
 
-
 router.get('/new', (req, res) => {
     res.render('menu/new', {
         userId: req.params.userId
@@ -60,7 +59,6 @@ router.put('/:id', (req, res) => {
         })
         .catch(err => console.log(err))
     })
-
 
 router.delete('/:id', (req, res) => {
     const userId = req.params.userId

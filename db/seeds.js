@@ -13,13 +13,13 @@ mongoose.connect(process.env.MONGODB_URI) //may have to move to localhost method
 
 User.remove()
     .then(() => {
-        const James =  new User({
+        const James = new User({
             name: "James Smith",
             restaurant: "Some Hole in the Wall",
             menus: [],
             dishQue: []
         })
-        
+
         const breakfast = new Menu({
             name: "Breakfast",
             dishes: []
@@ -31,16 +31,16 @@ User.remove()
             ingredients: "eggs, sausage, toast, hashbrowns, bacon, grits",
             cookTime: 6,
             ovensNeeded: 0,
-            stovesNeeded: 3 
+            stovesNeeded: 3
         })
-    
+
         const omelet = new Dish({
             name: "Omelet",
             price: 5.99,
             ingredients: "eggs, toast, hashbrowns, bacon or sausage, cheddar or American cheese",
             cookTime: 4,
             ovensNeeded: 0,
-            stovesNeeded: 1 
+            stovesNeeded: 1
         })
 
         const toaster = new Dish({
@@ -49,7 +49,7 @@ User.remove()
             ingredients: "eggs, toast, grits, bacon, American cheese",
             cookTime: 4,
             ovensNeeded: 0,
-            stovesNeeded: 2 
+            stovesNeeded: 2
         })
         breakfast.dishes.push(toaster, omelet, platter)
 
@@ -64,7 +64,7 @@ User.remove()
             ingredients: "lettuce, kale, ranch dressing, tomato",
             cookTime: 1,
             ovensNeeded: 0,
-            stovesNeeded: 0 
+            stovesNeeded: 0
         })
 
         const chickSand = new Dish({
@@ -79,14 +79,14 @@ User.remove()
         James.menus.push(breakfast, lunch)
 
         return James.save()
-    }).then(() => {    
+    }).then(() => {
         return User.create({
             name: "Dave Jones",
             restaurant: "Italian Guy's",
             menus: [],
             dishQue: []
         })
-    })  .then((dave) => {  
+    }).then((dave) => {
         const dinner = new Menu({
             name: "Dinner-Main",
             dishes: []
@@ -116,7 +116,7 @@ User.remove()
             dishes: []
         })
 
-        const redSnapper = new  Dish({
+        const redSnapper = new Dish({
             name: "Red Snapper Francese",
             price: 17.99,
             ingredients: "noodles, lemon, butter, egg, red snapper, Italian cheeses",
@@ -125,7 +125,7 @@ User.remove()
             stovesNeeded: 2
         })
 
-        const vealdish = new Dish ({
+        const vealdish = new Dish({
             name: "Veal with it",
             price: 18.99,
             ingredients: "noodles, risoto, veal meat",
@@ -138,11 +138,10 @@ User.remove()
 
         return dave.save()
     })
-        .catch((err) => {
-            console.log("there was a seeding problem")
-        })
-        .then(() => {
-            mongoose.connection.close()
-            console.log("seeding complete")
-        })
-    
+    .catch((err) => {
+        console.log("there was a seeding problem")
+    })
+    .then(() => {
+        mongoose.connection.close()
+        console.log("seeding complete")
+    })

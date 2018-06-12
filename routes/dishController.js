@@ -4,7 +4,6 @@ const User = require('../models/User')
 const Menu = require('../models/Menu')
 const Dish = require('../models/Dish')
 
-
 router.get('/new', (req, res) => {
     res.render('dish/new', {
         userId: req.params.userId,
@@ -72,7 +71,6 @@ router.post('/:id/send', (req, res) => {
         .catch(err => console.log(err))
     })
 
-
 router.put('/:id', (req, res) => {
     const userId = req.params.userId
     const menuId = req.params.menuId
@@ -94,7 +92,6 @@ router.put('/:id', (req, res) => {
         })
         .catch(err => console.log(err))
     })
-
 
 router.delete('/:id', (req, res) => {
     const userId = req.params.userId

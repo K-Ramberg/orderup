@@ -3,7 +3,7 @@ const menuSchema = require('./menuSchema')
 const dishSchema = require('./dishSchema')
 
 
-const userSchema = new Schema ({
+const userSchema = new Schema({
     name: String,
     restaurant: String,
     menus: [menuSchema],

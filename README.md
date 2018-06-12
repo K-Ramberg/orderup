@@ -24,7 +24,7 @@ __Heroku Live-Site:__(https://fathomless-ravine-49664.herokuapp.com/)
 ![](https://github.com/K-Ramberg/orderup/blob/master/ERD/erd1.jpg)
 
 #### Langauges, Libraries, ect.
-- Mongoose & MongoDB
+- Mongoose & MongoDB››
 - Express
 - Node
 - Handlebars
